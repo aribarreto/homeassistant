@@ -2,7 +2,7 @@
 
 Instalei o [Home Assistant](https://home-assistant.io/) em minha casa, e estes são meus arquivos de configuração (YAMLs)!
 
-#Dispositivos
+# Dispositivos
 * Computador simples com o Home Assistant instalado (tentei usar o Windows, mas acabei migrando para o Linux). Uso um Itautec Infoway nt2010
 * [Google Home](https://store.google.com/product/google_home) - Voice Assistant/Control
 * [Google Chromecast 1](https://www.google.com.au/chromecast/tv/chromecast)
@@ -18,7 +18,7 @@ Instalei o [Home Assistant](https://home-assistant.io/) em minha casa, e estes s
    * Temperatura na área de lazer com DHT22
    * Temperatura num quarto DHT22
 
-#Automações
+# Automações
 * Ao sair de casa, apagar as luzes
 * Dar as boas-vindas quando eu chego em casa
 * Avisar nas caixas de som se tem cheiro de gás ou fumaça
@@ -27,7 +27,7 @@ Instalei o [Home Assistant](https://home-assistant.io/) em minha casa, e estes s
 * Apaga as luzes a meia noite
 * Avisa sobre o dia de jogar lixo
 
-#Prints do Sistema
+# Prints do Sistema
 ![001](https://raw.githubusercontent.com/aribarreto/homeassistant/master/www/h1.png)
 ![001](https://raw.githubusercontent.com/aribarreto/homeassistant/master/www/h2.png)
 ![001](https://raw.githubusercontent.com/aribarreto/homeassistant/master/www/h3.png)
