@@ -1,0 +1,128 @@
+central:
+  hide_if_away: false
+  icon: mdi:database
+  mac:
+  name: Servidor EmausHome
+  picture:
+  track: true
+  vendor:
+
+note_ari:
+  hide_if_away: false
+  icon: mdi:laptop-windows
+  mac:
+  name: Note Ari
+  picture: 
+  track: true
+  vendor:
+
+note_mika:
+  hide_if_away: false
+  icon: mdi:laptop-windows
+  mac:
+  name: Note Mika
+  picture:
+  track: true
+  vendor:
+
+central_bl:
+  hide_if_away: false
+  icon: mdi:access-point-network
+  mac:
+  name: Central Broadlink
+  picture:
+  track: true
+  vendor:
+
+ari_s5:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Ari
+  picture: /local/ari.jpg
+  track: true
+  vendor:
+
+mika_g5:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Mikaely
+  picture: /local/mika.jpg
+  track: true
+  vendor:
+
+lucimar:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Lucimar
+  picture: /local/lucimar.jpg
+  track: true
+  vendor:
+
+c1:
+  hide_if_away: false
+  icon: mdi:image
+  name: Câmera 1
+  track: true
+
+c2:
+  hide_if_away: false
+  icon: mdi:image
+  name: Câmera 2
+  track: true
+
+c3:
+  hide_if_away: false
+  icon: mdi:image
+  name: Câmera 3
+  track: true
+
+c4:
+  hide_if_away: false
+  icon: mdi:image
+  name: Câmera 4
+  track: true
+
+c5:
+  hide_if_away: false
+  icon: mdi:image
+  name: Câmera 5
+  track: true
+
+tomadabl:
+  hide_if_away: false
+  icon: mdi:power-plug
+  name: Tomada BL
+  track: true
+
+casalbl:
+  hide_if_away: false
+  icon: mdi:router-wireless
+  name: BL Casal
+  track: true
+
+pedrobl:
+  hide_if_away: false
+  icon: mdi:router-wireless
+  name: BL Pedro
+  track: true
+
+tempbl:
+  hide_if_away: false
+  icon: mdi:oil-temperature
+  name: Temperatura BL
+  track: true
+
+segurancabl:
+  hide_if_away: false
+  icon: mdi:security-home
+  name: Central de Segurança
+  track: true
+
+tv:
+  hide_if_away: false
+  icon: mdi:television
+  name: TV LG
+  track: true

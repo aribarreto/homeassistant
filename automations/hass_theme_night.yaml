@@ -1,0 +1,8 @@
+alias: Modo Noite após por do Sol
+trigger:
+- platform: sun
+  event: sunset
+action:
+- service: frontend.set_theme
+  data:
+    name: darkblue 

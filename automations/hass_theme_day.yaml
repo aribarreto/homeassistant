@@ -1,0 +1,9 @@
+alias: Modo Dia após nascer do Sol
+trigger:
+- platform: sun
+  event: sunrise
+  offset: '+00:30:00'
+action:
+- service: frontend.set_theme
+  data:
+    name: default

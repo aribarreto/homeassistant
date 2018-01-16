@@ -1,0 +1,13 @@
+alias: 'Ao Sair Apaga Luzes'
+trigger:
+  platform: state
+  entity_id: group.familia
+  from: 'home'
+  to: 'not_home'
+condition:
+  condition: time
+  after: '06:00'
+  before: '17:00'
+action:
+  service: script.turn_on
+  entity_id: script.apagaluzes

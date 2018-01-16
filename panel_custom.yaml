@@ -1,0 +1,5 @@
+  - name: floorplan
+    sidebar_title: Controles
+    sidebar_icon: mdi:television-box
+    url_path: floorplan
+    config: !include floorplan.yaml

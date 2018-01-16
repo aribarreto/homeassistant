@@ -1,0 +1,151 @@
+homeassistant:
+  name: Emaus
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 31
+  unit_system: metric
+  time_zone: America/Fortaleza
+  customize: !include customize.yaml
+
+
+frontend:
+  themes:
+    darkblue:
+      primary-color: "#396FB6"
+      light-primary-color: "#77a0d4"
+      dark-primary-color: "#3539ce"
+      text-primary-color: "#ffffff"
+      primary-background-color: "#37464f"
+      sidebar-text_-_background: "#3c4348"
+      paper-card-background-color: "#263137"
+      paper-card-header-color: "var(--text-primary-color)"
+      secondary-background-color: "var(--primary-background-color)"
+      primary-text-color: "var(--text-primary-color)"
+      secondary-text-color: "var(--primary-color)"
+      paper-listbox-background-color: "var(--sidebar-text_-_background)"
+      paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-button-color: "var(--dark-primary-color)"
+      paper-toggle-button-checked-bar-color: "var(--dark-primary-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-knob-start-color: "var(--primary-color)"
+      paper-slider-pin-color: "var(--primary-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-secondary-color: "var(--light-primary-color)"
+      paper-slider-container-color: "var(--sidebar-text_-_background)"
+      paper-progress-secondary-color: "var(--sidebar-text_-_background)"
+      paper-item-selected_-_background-color: "var(--primary-color)"
+      paper-item-icon_-_color: "var(--text-primary-color)"
+      paper-item-icon-color: "var(--text-primary-color)"
+      paper-item-icon-active-color: "var(--primary-color)"
+      paper-grey-50: "var(--sidebar-text_-_background)"
+      paper-grey-200: "var(--primary-background-color)"
+      label-badge-background-color: "var(--sidebar-text_-_background)"
+      label-badge-text-color: "var(--text-primary-color)"
+      label-badge-red: "var(--primary-color)"
+      label-badge-blue: "var(--light-primary-color)"
+      label-badge-green: "var(--dark-primary-color)"
+      label-badge-yellow: "var(--text-primary-color)"
+      label-badge-grey: "var(--paper-grey-500)"
+      table-row-background-color: "var(--paper-card-background-color)"
+      table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+  extra_html_url:
+    - /local/custom_ui/state-card-floorplan.html
+
+config:
+
+http:
+  api_password: !secret http_password
+
+updater:
+  include_used_components: true
+
+discovery:
+
+#conversation:
+
+#media_player:
+#  - plataform: kodi
+#    host: 192.168.0.85
+#    name: Kodi
+
+#google_assistant:
+#  exposed_domains:
+#    - switch
+#    - light
+#    - group
+#    - cover
+#    - media_player
+#    - group
+#    - fan
+#    - scene
+#    - script
+#    - climate
+
+history:
+
+logbook:
+
+map:
+
+sun:
+
+sensor: !include sensors.yaml
+
+tts:
+  - platform: google
+
+group: !include groups.yaml
+automation: !include_dir_list automations
+script: !include scripts.yaml
+
+device_tracker: !include dispositivos.yaml
+
+mqtt:
+  broker: 192.168.0.41
+  port: 1883
+  username: !secret usuario_mqtt
+  password: !secret senha_mqtt
+  protocol: 3.1
+
+camera: !include cameras.yaml
+
+switch: !include switches.yaml
+
+light: !include lights.yaml
+
+google_assistant:
+  project_id: hass-emaus
+  client_id: adasdeafsrfsfsdfsfdgsdf
+  access_token: sdfsrgsdfadaasdasdgrgrgrgradf
+  api_key: AIzaSyDUuseQ25Al7yyu6RcJBeYGPhKHC92tcxo
+  exposed_domains:
+    - switch
+    - light
+    - group
+    - cover
+    - media_player
+    - fan
+    - scene
+    - script
+    - climate
+
+weblink:
+  entities:
+    - name: Roteador
+      url: http://192.168.0.1
+      icon: mdi:router-wireless
+
+panel_iframe:
+# Hass Configurator Panel
+  roteador:
+    title: Roteador
+    icon: mdi:router-wireless
+    url: http://192.168.0.1
+
+panel_custom: !include panel_custom.yaml
+
+binary_sensor: !include binary_sensors.yaml
+
+ifttt:
+  key: dXRxoPxNjGL_I12YO9xx0y
+

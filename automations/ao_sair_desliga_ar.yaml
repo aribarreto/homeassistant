@@ -1,0 +1,11 @@
+alias: 'Ao Sair Desliga o Ar'
+trigger:
+  platform: state
+  entity_id: group.familia
+  from: 'home'
+  to: 'not_home'
+action:
+  - service: switch.turn_on
+    entity_id: switch.ar_pedro_desligar
+  - service: switch.turn_on
+    entity_id: switch.ar_casal_desligar

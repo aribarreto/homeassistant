@@ -1,0 +1,137 @@
+sensor.motion_sensor:
+  friendly_name: Sensor de Movimento
+  icon: mdi:walk
+
+sensor.entrance_door_sensor:
+  friendly_name: Sensor de Porta
+  icon: mdi:glassdoor
+
+sun.sun:
+  friendly_name: Sol
+
+sensor.temperatura_casal:
+  friendly_name: Temperatura
+  icon: mdi:thermometer
+sensor.umidade_casal:
+  friendly_name: Umidade
+  icon: mdi:thermometer
+
+sensor.temperatura_cozinha:
+  friendly_name: Temperatura
+  icon: mdi:thermometer
+sensor.umidade_cozinha:
+  friendly_name: Umidade
+  icon: mdi:thermometer
+
+sensor.status_gas:
+  icon: mdi:fire
+sensor.nivel_de_gas:
+  icon: mdi:fire
+sensor.indicador_gas:
+  icon: mdi:fire
+
+switch.ar_casal_18oc:
+  friendly_name: Ligar Ar 18ºC
+  icon: mdi:snowflake
+switch.ar_casal_24oc:
+  friendly_name: Ligar Ar 18ºC
+  icon: mdi:snowflake
+switch.ar_casal_desligar:
+  friendly_name: Desligar Ar
+  icon: mdi:snowflake
+switch.ar_pedro_18oc:
+  friendly_name: Ligar Ar 18ºC
+  icon: mdi:snowflake
+switch.ar_pedro_24oc:
+  friendly_name: Ligar Ar 18ºC
+  icon: mdi:snowflake
+switch.ar_pedro_desligar:
+  friendly_name: Desligar Ar
+  icon: mdi:snowflake
+
+sensor.pedro_temperature:
+  friendly_name: Temperatura
+  icon: mdi:thermometer
+sensor.pedro_humidity:
+  friendly_name: Umidade
+  icon: mdi:thermometer
+sensor.pedro_air_quality:
+  friendly_name: Qualidade do Ar
+  icon: mdi:weather-windy
+sensor.pedro_light:
+  friendly_name: Iluminação
+  icon: mdi:lamp
+sensor.pedro_noise:
+  friendly_name: Barulho
+  icon: mdi:ear-hearing
+
+
+sensor.sala_temperature:
+  friendly_name: Temperatura
+
+switch.tv:
+  friendly_name: Luz TV
+  icon: mdi:lightbulb
+switch.jantar:
+  friendly_name: Luz Sala de Jantar
+  icon: mdi:lightbulb
+switch.garagem:
+  friendly_name: Luz Garagem
+  icon: mdi:lightbulb
+switch.Lateral:
+  friendly_name: Luz Lateral
+  icon: mdi:lightbulb
+switch.maracuja:
+  friendly_name: Luz Maracujá
+  icon: mdi:lightbulb
+switch.grama:
+  friendly_name: Luz Gramado
+  icon: mdi:lightbulb
+switch.tomada:
+  friendly_name: Ventilador
+  icon: mdi:fan
+
+
+sensor.moon:
+  friendly_name: Lua
+
+sensor.weather_apparent_temperature:
+  friendly_name: Sensação Térmica
+sensor.weather_daily_high_temperature:
+  friendly_name: Temperatura Máxima
+sensor.weather_daily_low_temperature:
+  friendly_name: Temperatura Mínima
+sensor.weather_daily_summary:
+  friendly_name: Resumo Diário
+sensor.weather_hourly_summary:
+  friendly_name: Resumo da Hora
+sensor.weather_humidity:
+  friendly_name: Humidade Relativa
+sensor.weather_icon:
+  friendly_name: Ícone
+sensor.weather_minutely_summary:
+  friendly_name: Resumo do Minuto
+sensor.weather_nearest_storm_bearing:
+  friendly_name: Direção da Tempestade mais Próxima
+sensor.weather_nearest_storm_distance:
+  friendly_name: Distância para Tempestade
+sensor.weather_precip_intensity:
+  friendly_name: Intensidade de Chuva
+sensor.weather_precip_probability:
+  friendly_name: Prossibilidade de Chuva
+sensor.weather_pressure:
+  friendly_name: Pressão
+sensor.weather_summary:
+  friendly_name: Sumário
+sensor.weather_temperature:
+  friendly_name: Temperatura
+sensor.weather_visibility:
+  friendly_name: Visibilidade
+sensor.weather_wind_bearing:
+  friendly_name: Direção do Vento
+sensor.weather_wind_speed:
+  friendly_name: Velocidade do Vento
+
+
+script.sala_on:
+  friendly_name: Acender Sala

@@ -1,0 +1,205 @@
+#- platform: yr
+#  name: Tempo
+#    forecast: 24
+#    monitored_conditions:
+#      - temperature
+#      - symbol
+#      - precipitation
+#      - windSpeed
+#      - pressure
+#      - windDirection
+#      - humidity
+#      - fog
+#      - cloudiness
+#      - lowClouds
+#      - mediumClouds
+#      - highClouds
+#      - dewpointTemperature
+- platform: moon
+- platform: systemmonitor
+  resources:
+  - type: disk_use_percent
+    arg: /
+  - type: memory_free
+  - type: processor_use
+  - type: network_in
+    arg: 'enp1s0'
+  - type: network_out
+    arg: 'enp1s0'
+  - type: last_boot
+- platform: cpuspeed
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+- platform: darksky
+  api_key: !secret darksky_api
+  name: Weather
+  monitored_conditions:
+    - summary
+    - icon
+#    - nearest_storm_distance
+#    - nearest_storm_bearing
+#    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - apparent_temperature
+#    - dew_point
+    - wind_speed
+    - wind_bearing
+#    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+#    - ozone
+#    - minutely_summary
+#    - hourly_summary
+#    - daily_summary
+    - temperature_max
+    - temperature_min
+#    - apparent_temperature_max
+#    - apparent_temperature_min
+#    - precip_intensity_max
+
+
+#- platform: openweathermap
+#  api_key: !secret openweathermap_api
+#  forecast: 0
+#  monitored_conditions:
+#    - weather
+#    - temperature
+#    - wind_speed
+#    - humidity
+#    - pressure
+#    - clouds
+#    - rain
+
+- platform: broadlink
+  scan_interval: 160
+  update_interval: 160
+  host: 192.168.0.64
+  mac: '34:EA:34:B2:B7:8B'
+  name: "Pedro"
+  timeout: 10
+  monitored_conditions:
+    - temperature
+    - humidity
+    - air_quality
+    - light
+    - noise
+
+- platform: broadlink
+  scan_interval: 160
+  update_interval: 160
+  host: 192.168.0.61
+  mac: '34:EA:34:F4:3A:5D'
+  name: "Sala"
+  timeout: 10
+  monitored_conditions:
+    - temperature
+
+- platform: broadlink
+  scan_interval: 160
+  update_interval: 160
+  host: 192.168.0.65
+  mac: 'B4:43:0D:F9:2D:48'
+  name: "Casal"
+  timeout: 10
+  monitored_conditions:
+    - temperature
+
+- platform: mqtt
+  state_topic: "sensors/s1c/entrance_door"
+  name: "entrance_door_sensor"
+
+- platform: mqtt
+  state_topic: "sensors/s1c/motion_sensor"
+  name: "motion_sensor"
+
+- platform: mqtt
+  name: "Temperatura Casal"
+  state_topic: "sensor1/temperatura"
+  qos: 0
+  unit_of_measurement: "ºC"
+
+- platform: mqtt
+  name: "Umidade Casal"
+  state_topic: "sensor1/umidade"
+  qos: 0
+  unit_of_measurement: "%"
+
+
+- platform: mqtt
+  name: "Temperatura Externa"
+  state_topic: "sensor2/temperatura"
+  qos: 0
+  unit_of_measurement: "ºC"
+
+
+- platform: mqtt
+  name: "Umidade Externa"
+  state_topic: "sensor2/umidade"
+  qos: 0
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Temperatura Lazer"
+  state_topic: "sensor4/temperatura"
+  qos: 0
+  unit_of_measurement: "ºC"
+
+
+- platform: mqtt
+  name: "Umidade Lazer"
+  state_topic: "sensor4/umidade"
+  qos: 0
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Indicador de Chuva"
+  state_topic: "sensor2/chuvaa"
+  qos: 0
+
+#- platform: mqtt
+#  name: "Intensidade Chuva"
+#  state_topic: "sensor2/chuvad"
+#  qos: 0
+#  unit_of_measurement: "pt"
+
+- platform: mqtt
+  name: "Temperatura Cozinha"
+  state_topic: "sensor5/temperatura"
+  qos: 0
+  unit_of_measurement: "ºC"
+
+- platform: mqtt
+  name: "Umidade Cozinha"
+  state_topic: "sensor5/umidade"
+  qos: 0
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Nível de Gás"
+  state_topic: "sensor5/fumaca1"
+  qos: 0
+  unit_of_measurement: "pt"
+
+- platform: mqtt
+  name: "Indicador Gás"
+  state_topic: "sensor5/fumaca2"
+  qos: 0
+
+- platform: mqtt
+  name: "Status Gás"
+  state_topic: "sensor5/fumaca3"
+  qos: 0
+
+- platform: template
+  sensors:
+    solar_angle:
+      friendly_name: "Ângulo do Sol"
+      unit_of_measurement: '°'
+      value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"

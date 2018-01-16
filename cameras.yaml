@@ -1,0 +1,33 @@
+
+- platform: mjpeg
+  name: Sala
+  still_image_url: http://ariolive
+  mjpeg_url: http://ari
+  username: XXX
+  password: XXX
+  authentication: digest
+- platform: mjpeg
+  name: Quarto Casal
+  still_image_url: http://
+  mjpeg_url: http://ariol
+  username: XXX
+  password: XXX
+  authentication: digest 
+- platform: mjpeg
+  name:  Garagem
+  still_image_url: http://ario
+  mjpeg_url: http://arioliveir
+  username: XXX
+  password: XXX
+  authentication: digest
+- platform: mjpeg
+  name: Berço
+  still_image_url: http://192.
+  mjpeg_url: http://192.1
+- platform: mjpeg
+  name: Externa
+  still_image_url: http://arioliveir
+  mjpeg_url: http://arioliveir
+  username: XXX
+  password: XXX
+  authentication: digest

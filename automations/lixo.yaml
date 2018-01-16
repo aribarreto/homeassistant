@@ -1,0 +1,20 @@
+alias: 'Dia de Lixo'
+trigger:
+  platform: time
+  at: '09:00:00'
+condition:
+  condition: time
+  weekday:
+    - tue
+    - thu
+    - sat
+action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.google_home
+      volume_level: "0.7"
+  - service: tts.google_say
+    data:
+      entity_id: media_player.google_home
+      language: pt
+      message: 'Bom dia! Hoje é dia de tirar o lixo.'

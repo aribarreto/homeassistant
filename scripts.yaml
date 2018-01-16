@@ -1,0 +1,830 @@
+apagaluzes:
+  alias: Apaga Luzes
+  sequence:
+  - service: script.toggle
+    data:
+      entity_id: script.garagem_off
+  - delay: 00:00:0
+  - service: script.toggle
+    data:
+      entity_id: script.maracuja_off
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.grama_off
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.lateral_off
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.jantar_off
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.luztv_off
+
+acendeluzes:
+  alias: Acende Luzes
+  sequence:
+  - service: script.toggle
+    data:
+      entity_id: script.garagem_on
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.maracuja_on
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.grama_on
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.lateral_on
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.jantar_on
+  - delay: 00:00:01
+  - service: script.toggle
+    data:
+      entity_id: script.luztv_on
+
+sala_on:
+  alias: Acende Sala
+  sequence:
+  - service: script.toggle
+    data:
+      entity_id: script.luztv_on
+  - delay: 00:00:02
+  - service: script.toggle
+    data:
+      entity_id: script.jantar_on
+
+sala_off:
+  alias: Apaga Sala
+  sequence:
+  - service: script.toggle
+    data:
+      entity_id: script.luztv_off
+  - delay: 00:00:02
+  - service: script.toggle
+    data:
+      entity_id: script.jantar_off
+
+garagem_on:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sgk0AAwkDCQMJCMNDCUMJCMNDCQjDQwkDCQjDQwkIw0MJCMNDCQjDSMNDCQMJAwkDCQjDQwAAWgAAAAA
+garagem_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sjk0AAwkIw0jDQwkIw0jDSMNIw0jDSMNDCQMJAwkIw0jDSMNIw0jDSMNDCQMJAwkDCQMJAwAAWgAAAAA
+maracuja_on:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sjk0AA0jJAwNIyQMDSMkDA0jJAwNIyQMDSMkDA0jJAwNIyQMDSMkDA0jJAwNIyQMDSMkDA0AAWcAAAAA
+maracuja_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sgk0AAwkDCQMJCMNDCQMJCMNDCQjDSMNJAwMJCQMDSMkDCQMDCQkDQwkDCQMJAwkIw0MIw0AAWcAAAAA
+grama_on:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - si40AAwlDCUjDgwlIw0LJSMOIw0jDgwkDCQjDSMNIw0jDSMNIw0jDSMNIg0MJCMNIw0jDQsAAWgAAAAA
+grama_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - shc0AA0kJAwkDSQMDCQNJA0kJAwkDCQNJA0jDQwkDSQjDQwkDSMkDAwkDCQjDCQMJAwMIwwAAWcAAAAA
+lateral_on:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sgk0AAwkDCQMJCMNDCQMJAwkDCQjDSMNIw0jDSMNDCQMJAwkIw0MJCMNIw0jDSMNIw0jDQwAAWgAAAAA
+lateral_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sjk0AAwkDCQjDQwkDCQjDSMNDCQjDSMNDCQjDQwkIw0MJAwkIw0jDSMNDCQjDSMNIw0MJAwAAWcAAAAA
+luztv_on:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sgk0AAwkDCQjDSQNIw0MJAwkDCQkDSMNIw0kDSMNDCQMJAwkIw0jDCMNDSMMJCQMDCQkDAwAAWcAAAAA
+luztv_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sjI0AA0kDSQkDAwkJA0kDQwkDSQMJAwkDSQjDQwkJA0jDCMNDCQjDA0jJAwMJCQMIw0MJA0AAWcAAAAA
+jantar_on:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sgCGACALIwwjDAwjIwwjCyMMIwwjDCMMIgwjDCMLDAABZwwjDCMjDAwjIwwiDSMMIg0LIyMMIwwjDCMMIg0MIyIMIwwjDCMMIwsjDCMMIwsjDAwAAWYMJAsjIw0LIyMMIwwjDCMMDCMjDCMMIwwiDCMMDCMjDCMMIg0iDCMMIwsjDCMMIwwLAAXcAAA=
+jantar_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_61
+      data:
+        packet:
+        - sgk0AA0kDSQNJCQNDCQNJAwkDSQMIw0kJA0MJAwkJA0MIw0kJA0jDSQMJAwjDSMMDCQkDA0AAWcAAAAA
+
+pedro18:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_66
+      data:
+        packet:
+        - JgCSAAABKZIXNRYRFxEWNhc0FxEWERcRFhEXNRcRFhEWEhYRFxEWEhcQFhIWERYSFhEXNRY2FjUWEhYRFxEXEBc1FxEXNBcRFhEXNRYSFgACjhcRFhEXERYRFxEWEhYRFhIWNRc1FxEWERYSFhEXERYRFxEWERcRFhIWERYSFhEWEhYRFxEWERcRFjYWERY2FhEXAA0FAAAAAAAA
+
+pedro_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_66
+      data:
+        packet:
+        - JgCSAAABKZIWNhYRFhIWERc1FhIWERYSFhEWEhYRFzUWEhYRFhIWERYSFxAXERYRFxEWNhYRFjYWERYSFhEXERY2FhEWNhYRFxEWNhYRFgACjBkRFxEWEhYRFhIWERYSFhEXNRY2FhEWEhcQFhIWERcRFhEXERYSFhEXERYRFxEWERcRFhIWERYSFjUXNRYSFhEWAA0FAAAAAAAA
+
+casal18:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_65
+      data:
+        packet:
+        - JgCSAAABKZIXNRYRFxEWNhc0FxEWERcRFhEXNRcRFhEWEhYRFxEWEhcQFhIWERYSFhEXNRY2FjUWEhYRFxEXEBc1FxEXNBcRFhEXNRYSFgACjhcRFhEXERYRFxEWEhYRFhIWNRc1FxEWERYSFhEXERYRFxEWERcRFhIWERYSFhEWEhYRFxEWERcRFjYWERY2FhEXAA0FAAAAAAAA
+
+casal_off:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_65
+      data:
+        packet:
+        - JgCSAAABKZIWNhYRFhIWERc1FhIWERYSFhEWEhYRFzUWEhYRFhIWERYSFxAXERYRFxEWNhYRFjYWERYSFhEXERY2FhEWNhYRFxEWNhYRFgACjBkRFxEWEhYRFhIWERYSFhEXNRY2FhEWEhcQFhIWERcRFhEXERYSFhEXERYRFxEWERcRFhIWERYSFjUXNRYSFhEWAA0FAAAAAAAA
+
+
+
+
+portao:
+  alias: Portão
+  sequence:
+  - service: broadlink.send_packet_192_168_0_61
+    data:
+      packet:
+      - sQBKARAAAAAAAAA
+cerca:
+  alias: Cerca Elétrica
+  sequence:
+  - service: broadlink.send_packet_192_168_0_61
+    data:
+      packet:
+      - rwBkARAPAXcAAAAAA==
+
+# Inicio dos Controles Remotos
+
+tv_on:
+  alias: Ligar TV
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABKJITEhMSEzYTEhMSExETEhMSEzYTNxMSEjcTNhM3EzYTNxMRExITEhM2ExITEhMSEhITNxM2EzcSEhM3EzYTNxM2EwAFJAABKEgTAAxQAAEoSRIADQU=
+    service: broadlink.send_packet_192_168_0_61
+tv_guia:
+  alias: Guia
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSEhITEhMSEzYTNxMREzcTNhM3EzYTNxMREzcTEhI3EzYTNxM2ExITNhMSEzcTERMSExITEhI3EwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_ratio:
+  alias: Ratio
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMSEzYTEhMSEhITEhMSEzYTNxISEzcTNhM3EzYTNxM2ExITEhI3EzcSNxM2ExITEhM2EzcTEhISExITEhM2EwAFIwABKUgSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_input:
+  alias: Input
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKpATEhISEzcTERMSExITEhISEzcTNhMSEzYTNxM2EzcTNhM3EjcTEhM2ExITEhMRExITEhMSEjcTEhM2EzcSNxM3EgAFIwABKkcTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_tv:
+  alias: TV
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMSEzYTEhMSEhITEhMSEzYTNxISEzcTNhM3EzYTNxM2ExITEhI3EzcSNxM2ExITEhM2EzcTEhISExITEhM2EwAFIwABKUgSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_1:
+  alias: 1
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJISEhMSEzcSEhMSExITEhISEzcSNxMSEzYTNxM2EzcSNxM2ExITEhMSEjcTEhMSEhITEhM2EzcTNhMSEzcSNxM2EwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_2:
+  alias: 2
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhISEzcTERMSExITEhISEzcTNhMSEzYTNxM2EzYUNhMSEzYTEhMSEzYTEhMSExETNxMSEjcTNhMSEzcTNhM3EwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_3:
+  alias: 3
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSExETEhMSEzYTNxMSEjcTNhM3EzYTNxM2EzcSEhMSEzcSEhMSExITERMSEzcSNxMSEzYTNxM2EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_4:
+  alias: 4
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSEhITEhMSEzYTNxISEzcTNhM3EzYTNxISExITNxISEzcTERMSExITNhM3ExISNxMSEzYTNxI3EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_5:
+  alias: 5
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMREzcTEhISExITEhMREzcTNhMSEzcSNxM2EzcTNhM3ExISNxMSEzYTEhMSEhITEhM2ExITNxISEzcTNhM3EwAFIgABKEkTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_6:
+  alias: 6
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhISEzcTERMSExITEhISEzcTNhMSEzYTNxM2EzcTNhMSEzYTNxMREzcTEhMRExITNxISExITNhMSEzcSNhQ3EgAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_7:
+  alias: 7
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMSEzYTEhMSEhITEhMSEzYTNxMREzcTNhM3EzYTNxI3EzYTNxMSEjcTEhMSEhITEhMSExETNxMSEzYTNxI3EwAFIwABJ0kTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_8:
+  alias: 8
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJETEhMSEzYTEhMSExISEhMSEzYTNxMSEjcTNhM3EzYTNxMSEhITEhM2EzcTEhISExITNxI3EzYTEhMSEzYTNxM2EwAFIwABKUgSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_9:
+  alias: 9
+  sequence:
+  - data:
+      packet:
+      - JgBSAAuwAAEpkBQSExITNhMSExITEhISExITNhM3ExISNxM2EzcTNhM3EzYTEhMSEzYTNxISExITEhMSEjcTNhMSExITNhM3EzYTAAUjAAEoSBMADQUAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_0:
+  alias: 0
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJISEhMSEzYTEhMSExITERMSEzcSNxMSEzYTNxM2EzcSNxMSExISEhMSEzYTEhMSExISNxM2EzcTNhMSEzcSNxM2EwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_list:
+  alias: Lista
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMREzcTEhISExITEhMSEjcTNhMSEzcSNxM2EzcTNhMSExITNhM3ExISEhM3ExETNxM2ExITEhM2EzcTEhI3EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_qview:
+  alias: Quick View
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMSEzYTEhMSEhITEhMSEzYTNxMREzcTNhM3EzYTNxISEzcTEhI3EzYTEhMSExISNxMSEzYTEhMSEjcTNxI3EwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_vol1:
+  alias: Volume +
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKZETEhMREzcTEhISExITEhMSEjcTNhMSEzcSNxM3EjcTNhMSEzcSEhMSExITEhISExITNxISEzcTNhM3EzYTNxI3EwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_vol2:
+  alias: Volume -
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKpITERMSEzcSEhMSExITERMSEzcTNhMSEzYTNxM2EzcSNxM3EjcTEhMSEhITEhMSExETEhMSEzYTNxM2EzcTNhM3EwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_can1:
+  alias: Canal +
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITERMSEzcSEhMSExITERMSEzcSNxMSEzYTNxM2EzcSNxMSExISEhMSExITERMSExITNhM3EzYTNxM2EzcSNxM2EwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_can2:
+  alias: Canal -
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhISEzcTEhISExITEhMREzcTNhMSEzYTNxM2EzcTNhM3ExISEhMSExITERMSExITEhI3EzcSNxM2EzcTNhM3EwAFIwABKUcTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_fav:
+  alias: Favoritos
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSExISEhMSEzcSNxMSEzYTNxI3EzcSNxMSEzYTNxM2EzcSEhMSExITNhMSExITEhISEzcTNhM3EgAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_settings:
+  alias: Settings
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSExETEhMSEzYTNxMSEjcTNhM3EzYTNxM2EzcTEhISExITEhI3ExITEhISEzcTNhM3EzYTEhM2EwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_mute:
+  alias: Mute
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhISEzcTEhISExITEhMREzcTNhMSEzYTNxM2EzcTNhM3ExETEhM3ExETEhMSExISEhM3EzYTEhM2EzcTNhM3EwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_info:
+  alias: Info
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKZETEhMSEzYTEhMSExISEhMSEzYTNxMSEjcTNhM3EzYTNxMSEjcTEhI3ExITNhMSEzYTNxMSEjcTEhM2ExITNhMSEwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_smart:
+  alias: Smart
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKZEUERMSEzYTEhMSExISEhMSEzYTNxMSEjcTNxI3EzYTNxMSExETNxM2EzcTNhM3EhITNxM2ExITEhMSEhITEhM2EwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_myapps:
+  alias: My Apps
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKJITEhISEzcTEhISExITEhMSEjcTNhMSEzcSNxM2EzcTNhMSEzcSEhMSExITERM3ExISNxMSEzYTNxM2EzcSEhM3EwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_cima:
+  alias: Cima
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEjcTEhMRExITEhMSEjcTNhMSEzcSNxM3EjcTNhMSExITEhISExITEhM2ExITNhM3EzYTNxM2EzcTERM3EwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_baixo:
+  alias: Baixo
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMSEjcTEhMSEhITEhMSEjcTNxISEzcTNhM3EzYTNxI3ExITEhISExITEhI3ExITEhI3EzYTNxM2EzcTEhI3EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_dir:
+  alias: Direita
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSExISEhMSEzYTNxMSEzYTNxI3EzcSNxMSEzYTNxMRExITEhMSEhITNxMSEhITNxM2EzcTNhM3EgAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_esq:
+  alias: Esquerda
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSEhITEhMSEzYTNxMSEjcTNhM3EzYTNxM2EzcTNhMSExITERMSExITEhISExITNxI3EzYTNxM2EwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_back:
+  alias: Voltar
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKpATEhMSEzYTEhMSExETEhMSEzYTNxMREzcTNhM3EzYTNxISExITEhM2ExITNhMSExITNhM3EzYTEhM2ExITNxI3EwAFIwABKUcTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_guide:
+  alias: Guia
+  sequence:
+  - data:
+      packet:
+      -  JgBIAAABJ5MTEhMSEjcTEhISExITEhMSEjcTNhMSEzcSNxM2EzcTNhM3EzYTEhM2ExITNxISEzcTEhISEzcTEhI3ExITNhMSEwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_exit:
+  alias: Sair
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKZETERMSEzcSEhMSExITEhISEzcSNxMSEzYTNxM2EzcSNxM2EzcTEhM2EzcSEhM3ExISEhMSEzYTEhMSEzYTEhM3EgANBQ==
+    service: broadlink.send_packet_192_168_0_61
+tv_vermelho:
+  alias: Vermelho
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSExETEhMSEzYTNxMSEjcTNxI3EzYTNxMSEjcTEhMREzcTNhM3ExISNxMSEjcTNxISExITEhM2EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_verde:
+  alias: Verde
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZISEhMSEzcSEhMSExITEhISEzcTNhMSEzYTNxM2EzcTNhM3ExETEhMSEzYTNxM2ExITEhM2EzcTNhMSExISEhM3EwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_amarelo:
+  alias: Amarelo
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSExISEhMSEzcSNxMSEzYTNxI3EzcSNxM2EzcTEhMRExITNxI3ExITEhISEzcTNhM3ExETEhM3EgAFJAABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_azul:
+  alias: Azul
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhISEzcTEhISExITEhMSEjcTNhMSEzcSNxM3EjcTNhM3ExISEhMSExITNhM3ExISEhM3EzYTNxI3ExITEhI3EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_stop:
+  alias: Stop
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJISEhMSEzcSEhMSExITERMSEzcSNxMSEzYTNxI3EzcSNxM2ExITEhMSEjcTNxISEzcSEhM3EzYTNxMSEhITNxISEwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_play:
+  alias: Play
+  sequence:
+  - data:
+      packet:
+      - JgBUAAABKZISEhMSEzcSEhMSExITERMSEzcTNhMSEzYTNxM2EzcTNhMSExITERMSEzcSNxMSEzYTNxI3EzcSNxMSExISNxMSEwADTwgAAcsAASlIEwANBQAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_rew:
+  alias: Rew
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEjcTEhMSEhITEhMSEzYTNxMREzcTNhM3EzYTNxM2EzcTNhM3EhITEhMSEzYTEhMSExISEhM3EzYTNxISEwAFIwABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_pause:
+  alias: Pause
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITERMSEzcSEhMSExITEhISEzcTNhMSEzYTNxM2EzcTNhMSEzYTEhM3EjcTNBUSEzcTNhMSEzYTEhMSExISNxMSEwAFIgABKUgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_fwd:
+  alias: Fwd
+  sequence:
+  - data:
+      packet:
+      - a
+    service: broadlink.send_packet_192_168_0_61
+tv_rec:
+  alias: Rec
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKpATEhMSEjcTEhMSEhITEhMSEzYTNxISEzcTNhM3EzYTNxMREzcTNhM3ExISEhMSEzYTNxMSEhITEhM3EjcTNhMSEwAFIwABKUgSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_sleep:
+  alias: Sleep
+  sequence:
+  - data:
+      packet:
+      - a
+    service: broadlink.send_packet_192_168_0_61
+tv_simplink:
+  alias: Simplink
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKJITEhMSEzYTEhMSExISEhMSEzYTNxMSEjcTNhM3EzYTNxMSEjcTNhM3EzYTNxM2ExITNhMSExITEhISExITEhM2EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+tv_ok:
+  alias: OK
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZISEhMSEzYTEhMSExISEhMSEzcSNxMSEzYTNxI3EzYTNxMSExETNxMSEhITEhM2ExITNxM2ExITNhM3EzYTEhM2EwAFIgABKUkTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+
+net_on:
+  alias: Ligar NET
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNhM2FDYSEhMSEhITEhM2FBETNhM3EzYTNhQREzYTEhISEzcTERMSEzYUERMRFBETNhMSEzYUNhMREzYTNxM2FAAFFQABJkkTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_portal:
+  alias: Portal
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpISNxQ1EzcTERMSExISEhQ1FBEUNRQ2EzYUNRQRFDUUERQRExEUNRQ2EzYTEhISFBETNhQ2ExETEhMREzcTNhM2EwAFFgABJkkTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_mosaico:
+  alias: Mosaico
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNhM3EjYUEhISExISEhM3EhITNxI3EzYTNxISEzcSEhMSEhITNxM2EzYTEhMRExITNhM3EhITEhMREzcTNhM3EgAFFgABJ0gTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_info:
+  alias: Info
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNxI3EzYTEhMRExITEhI3ExETNxI3EzcSNxMSEjcTERM3EjcTEhISEzcSEhMSEhITEhMREzcSNxMSEjcTNhM3EgAFFwABJkgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_vol1:
+  alias: Volume +
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKZETEhMSEzYTEhMSEhITEhMSEzYTNxISEzcTNhM3EzYTNxISEzcTEhISExITEhMRExITNxISEzcTNhM3EzYTNxI3EwAFIwABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_vol2:
+  alias: Volume -
+  sequence:
+  - data:
+      packet:
+      - JgBIAAABKpATEhMSEzYTEhMSExETEhMSEzYTNxMSEjcTNhM3EzYTNxM2EzcSEhMSExITEhISExITEhMSEjcTNhM3EzYTNxM2EwANBQ==
+    service: broadlink.send_packet_192_168_0_61
+net_can1:
+  alias: Canal +
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJ5ETNhM3EjcTEhISExISEhM3EhITNxI3EzYUNhISFDYTERMSEhITEhISEzcSEhMSExETNxI3EzYTNxMREzcSNxM3EgAFFgABJ0gTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_can2:
+  alias: Canal -
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNhQ2EjcUERISFBESEhM3EhITNhQ2EzYTNxISEzcSEhMSEjcTEhI3EzYUERMRExIUNRMSEzYTEhMREzcTNhQ1FAAFFQABJkkTAAxkAAEmSBMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_mute:
+  alias: Mute
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABKpATEhMSEzYTEhMSExISEhMSEzYTNRUSEjcTNxI3EzYTNxM2ExITEhM2ExITEhISExITEhM2EzcTEhI3EzYTNxM2EwAFIwABKUgSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_voltar:
+  alias: Voltar
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNhM3EzYTEhISExISEhM3ExETNxM2EzYTNxMREzcSEhM2ExITEhISEzcTERMSEhITEhI3FDUTNxMREzcSNxM3EgAFFQABKEgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_sair:
+  alias: Sair
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNhI3EzYTEhMSEhITEhI3ExISNxM2EzcSNxMSEjcUERMRFDYSEhM2ExITEhISExISNxQREjcTERM3EzYTNxI3EwAFFgABJkgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_nettv:
+  alias: Net TV
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNRM3EzYTEhISExITERM3ExETNxI3EzYTNxMREzcSEhMSExETNxISEzcSEhMSExETNxI3ExISNxMSEjcTNhM3EgAFFwABJkgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_cima:
+  alias: Cima
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNxI3EzYTEhMSEhITEhI3ExISNxM2EzcSNxMSEjcTEhI3EzYTEhM2ExISEhMSExETEhMSEjcTEhI3EzYTNxI3EwAFFgABJkkSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_baixo:
+  alias: Baixo
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNhQ1EzcTERQRFBETERM2ExITNhQ2EjcTNhQRFDUUERMSExEUNRQ2ExEUERMRFBETNhM3ExETEhM2EzcSNxM2EwAFFgABJkkTAAxkAAEmSBQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_esq:
+  alias: Esquerda
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNRQ2EzYTEhMRExITERM3EhITNxI3FDUTNRUREzcSEhM3EjcTEhI3EzYTEhMRFBETEhISEzYTEhMSEjcTNhM3EgAFFwABJkgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_dir:
+  alias: Direita
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNhM3EjYUEhISExISEhM3EhITNxI3EzYTNxISEzcSEhMSEhITNxM2EzYTEhMRExITNhM3EhITEhMREzcTNhM3EgAFFgABJ0gTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_ok:
+  alias: OK
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJ5ETNhM3EzYTEhISExITERM3EhITNxI3EzYTNxMREzcSEhM3EhITNRQSEzcSEhMSEhITEhI3ExISNxMSEjcTNhM3EgAFFwABJkgTAAxkAAEmSRMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_vermelho:
+  alias: Vermelho iTV
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpMSNxM2EzcSEhMSEhITEhM2FBESNxM3EjcTNhMSEzYTEhISEzcSNxMSEjcTEhISExISNxMSEhITNhMSEzYTNxI3EwAFFgABJkkSAAxlAAEmSBMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_verde:
+  alias: Verde Audio
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpIUNRM3EzYTEhISExITERM3ExETNRQ3EzYTNxMREzcSEhM3EjcTNhMSEzYTEhMRExITEhISExISNxMSEzYTNhQ2EwAFFgABJkgTAAxkAAEmSRMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_amarelo:
+  alias: Amarelo Legenda
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJ5ISNxM2EzcTERMSEhITEhQ1ExISNxQ2EjcTNhQRFDUTEhISExITERM3EjcTEhISExITNhQ2EzYTEhISEzYTNxI3EwAFFgABJkkSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_azul:
+  alias: Azul Mensagem
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJ5ITNhM2FDYTERMSExETEhM2ExITNhQ2EzYTNhQREzYTEhM2ExISEhM3EzYTEhISFBESEhQ2EjcTEhISEzYTNxM2EwAFFgABJ0gSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_agora:
+  alias: Agora
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNxI3FzITEhMSEhMSEhI3ExISNxM2EzcSNxMSEjcUERISEzYTNxM2EzcSEhMSEhITNxISExITERMSEzYUNhI3EwAFFgABJkgTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_1:
+  alias: 1
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNhM3EjcTEhISExISEhM3EhITNhM3EjcTNxISEzYTEhM2ExIUERISFBESEhQREhITEhI3EzcSNxM2EzcTNhM2EwAFFgABJkkTAAxkAAEmSBQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_2:
+  alias: 2
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNhQ2EjcTERMSExISEhM2ExITNhM3EjcTNhMSEzYTEhMSEjcTERMSExISEhMSEhITNxMREzcSNxM2EzcSNxM2EwAFFgABJkkSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_3:
+  alias: 3
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNhM3EzYUERISFBESEhM3ExEUNhI3EzYTNxMRFDYSEhM3EzYUEBQRExITERQRExETEhISFDYTNhQ1EzcTNhM3EwAFFQABJkkUAAxjAAEnRxQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_4:
+  alias: 4
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNhM2EzYUERQRExETEhM2FBETNhQ1EzcSNxQREzYUERISExITNhQREhIUERMRExITNhQ0FRETNhM3EzYUNhM2EwAFFgABJkgUAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_5:
+  alias: 5
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNhM3EzYUERISExISEhQ2ExETNhQ2FDUTNxMRFDUUERM2ExIUNRQRExISEhMSEhITEhI3FBESNxM2EzcTNhM2FAAFFQABJ0gUAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_6:
+  alias: 6
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJ5ITNhM2EzcSEhMSExETEhM2ExITNhM3EjcUNRMSEzYTEhMREzcTNhQRExETEhISExITNhMSEhITNxI1FTYTNxM2EwAFFgABJkkSAAxlAAEnRxQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_7:
+  alias: 7
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJ5ITNhM2EzcTERMSExETEhM2FBEUNRQ2EzYUNRMSFDUTEhM2EzcSNxMSEhITEhISExISEhMSExETMhg2FDYTNhM2FAAFFQABJkkTAAxkAAEmSBQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_8:
+  alias: 8
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNhM1FDYTEhMSEhITEhI3ExISNxM2EzcSNxMSEzUUEhISExISEhM3EhITEhISExITNhM3EjcTEhM2FDUTNxI3EwAFFgABJ0cUAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_9:
+  alias: 9
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNhM2EzcTERMSExISEhM3EhITNhM3EzYUNhISEzYTEhM2ExITEhI3ExETEhMSEhITEhI3EzYTEhM2EzcSNxQ1EwAFFgABJkkTAAxkAAEmSBMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_0:
+  alias: 0
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNhI3EzQVEhMSEhIUERI3ExISNxM2FDYSNxMSEjcTERQRFBESEhMSEhITEhMRExIUNRM3EjcTNhM3EjcUNRM3EwAFFgABJkgUAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_fav:
+  alias: Favoritos
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpISNxM3EjcSEhMSExISEhQ1FBETNhQ2EjcTNhMSEzYUERM2ExITNhQ2EzYTEhISExITERQ2ExEUERISEzcSNxM2EwAFFgABJkkTAAxkAAEnRxQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_menu:
+  alias: Menu
+  sequence:
+  - data:
+      packet:
+      - JgBcAAABJpISNxM2FDYTERMSExISEhM2ExITNhM3EzYUNRQREzYTEhM2FDYSEhQREhITNxMRFBESEhQREzYTNxI3ExISNxM2FAAFFQABJkkSAAPICAAIlQABJkgUAA0FAAAAAAAAAAAAAAAA
+    service: broadlink.send_packet_192_168_0_61
+net_rew:
+  alias: Rew
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNxM2EzYTEhMSEhITEhI3FBESNxM2EzcSNxMSEjcTEhMRExISNxQREjcUNRMSExETNxI3ExISNxQREhITNxM2FAAFFQABJ0gTAAxjAAEnSBMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_play:
+  alias: Play
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJ5ETNhQ2EjcTEhMRExISEhM3EhITNxI3EzYUNhMREzcSEhMSEzYUNRQRFDUTNxISExITNhMSEhITNxMRExISNxQ2EgAFFgABKEcTAAxkAAEmSRIADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_fwd:
+  alias: FWD
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJpITNxI3EzYTEhMRExIUERI3ExISNxM2FDYTNhMSEzYTERM3EhIUNhISEzcSNxQREhITEhI3ExISNxMSEhITNhQ2EwAFFgABJkgUAAxjAAEmSRMADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_replay:
+  alias: Replay
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpITNhQ2EjcTEhMRExISEhM3EhITNhM3EzYTNxMREzYTEhM2EzcSNxQREjcTNhQRExISEhMSEhITNxISExISNxM2FAAFFQABJkkTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_stop:
+  alias: Stop
+  sequence:
+  - data:
+      packet:
+      - JgBYAAABJ5ISNhQ2FDYSEhMSExETEhM2FBETNhM3EjcTNhMSEzYTEhMREzcTERQREzYTNxMRExISNxMSEjcTNhMSExISNxM2EwAFFgABJkkTAAxkAAEmSBQADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_rec:
+  alias: REC
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpMSNxM2EzcTERMSEhITEhI3ExISNxQ1EzcTNhMSEzYUERI3EzYTEhQREzYTNhQRFBATEhMSEjcTNhQRExEUNhM2FAAFFQABJkkSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_ppv:
+  alias: PPV
+  sequence:
+  - data:
+      packet:
+      - JgBYAAwACR0KAAsmAAEmkhM2FDYTNhMRExITEhMREzYTEhM2EzcTNhM2FBETNhQRFBETERMSEzYTEhM2ExETEhM2FDYTNRQSEjcUERM2EzYUAAUVAAEmSRIADQU=
+    service: broadlink.send_packet_192_168_0_61
+net_vod:
+  alias: NET NOW
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpMSNxM2EzcTERMSEhITEhI3ExITNhM3EzYTNhQREzYTEhI3ExISEhM3EjcTNhMSExETEhQ1EzcTERMSExETNxI3EwAFFgABJ0gTAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+net_musica:
+  alias: Música
+  sequence:
+  - data:
+      packet:
+      - JgBQAAABJpIUNhM2FDYSEhMSExETEhM2ExITNhM3EzYUNRMSEzYTEhMRExITERMSExISNxMRExITNhQ2EzYTNhQ2ExEUNhI3FAAFFQABJkkSAA0FAAAAAAAAAAA=
+    service: broadlink.send_packet_192_168_0_61
+
+# Fim dos Controles Remotos

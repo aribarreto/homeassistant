@@ -1,0 +1,195 @@
+default_view:
+  view: yes
+  name: Início
+  icon: mdi:lightbulb-on
+  entities:
+    - group.controles_casal
+    - group.controles_pedro
+    - group.controles_sala
+    - group.controles_cozinha
+    - group.controles_fora
+seguranca_view:
+  view: yes
+  name: Segurança
+  icon: mdi:security-network
+  entities:
+    - group.cameras1
+    - group.cameras2
+    - group.seguranca
+midia_view:
+  view: yes
+  name: Multimídia
+  icon: mdi:google-chrome
+  entities:
+    - group.multimidia1
+    - group.multimidia2
+controles_view:
+  view: yes
+  name: Ambiente
+  icon: mdi:information-outline
+  entities:
+    - group.familia
+    - group.servidor_emaushomel
+    - group.cenarios
+#   - group.web_link
+    - group.dispositivos
+    - group.tempo
+    - group.automacao
+
+cameras1:
+  name: Cameras 1
+  entities:
+    - camera.garagem
+    - camera.sala
+    - camera.externa
+cameras2:
+  name: Cameras 2
+  entities:
+    - camera.quarto_casal
+    - camera.berco
+familia:
+  name: Família
+  entities:
+    - device_tracker.ari_s5
+    - device_tracker.mika_g5
+    - device_tracker.lucimar
+dispositivos:
+  name: Dispositivos
+  entities:
+    - device_tracker.note_ari
+    - device_tracker.note_mika
+    - device_tracker.central
+    - device_tracker.central_bl
+    - device_tracker.casalbl
+    - device_tracker.pedrobl
+    - device_tracker.segurancabl
+    - device_tracker.tempbl
+    - device_tracker.tomadabl
+    - device_tracker.tv
+    - device_tracker.c1
+    - device_tracker.c2
+    - device_tracker.c3
+    - device_tracker.c4
+    - device_tracker.c5
+multimidia1:
+  name: Multimedia
+  entities:
+    - media_player.chromecast
+multimidia2:
+  name: Multimedia
+  entities:
+    - media_player.google_home
+servidor_emaushomel:
+  name: Servidor EmausHome
+  entities:
+    - sensor.cpu_speed
+    - sensor.cpu_used
+    - sensor.disk_used_
+    - sensor.last_boot
+    - sensor.ram_available
+    - sensor.received_ethernet
+    - sensor.sent_ethernet
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
+tempo:
+  name: Tempo
+  entities:
+    - sun.sun
+    - sensor.solar_angle
+    - sensor.moon
+    - sensor.weather_temperature
+    - sensor.weather_apparent_temperature
+    - sensor.weather_daily_high_temperature
+    - sensor.weather_daily_low_temperature
+#    - sensor.weather_daily_summary
+#    - sensor.weather_hourly_summary
+    - sensor.weather_humidity
+#    - sensor.weather_icon
+#    - sensor.weather_minutely_summary
+#    - sensor.weather_nearest_storm_bearing
+#    - sensor.weather_nearest_storm_distance
+    - sensor.weather_precip_intensity
+    - sensor.weather_precip_probability
+#    - sensor.weather_pressure
+#    - sensor.weather_summary
+    - sensor.weather_visibility
+    - sensor.weather_wind_bearing
+    - sensor.weather_wind_speed
+seguranca:
+  name: Segurança
+  control: hidden
+  entities:
+    - script.portao
+    - script.cerca
+controles_casal:
+  name: Casal
+  entities:
+    - sensor.temperatura_casal
+    - sensor.umidade_casal
+#    - sensor.casal_temperature
+    - sensor.entrance_door_sensor
+    - switch.ar_casal_18oc
+    - switch.ar_casal_24oc
+    - switch.ar_casal_desligar
+controles_cozinha:
+  name: Cozinha
+  entities:
+    - sensor.temperatura_cozinha
+    - sensor.umidade_cozinha
+    - sensor.status_gas
+    - sensor.nivel_de_gas
+    - sensor.indicador_gas
+controles_pedro:
+  name: Pedro
+  entities:
+    - sensor.pedro_temperature
+    - sensor.pedro_humidity
+    - sensor.pedro_air_quality
+    - sensor.pedro_light
+    - sensor.pedro_noise
+    - switch.ar_pedro_18oc
+    - switch.ar_pedro_24oc
+    - switch.ar_pedro_desligar
+controles_sala:
+  name: Sala
+  entities:
+    - sensor.sala_temperature
+    - switch.tomada
+    - switch.tv
+    - switch.jantar
+web_link:
+  name: Links
+  entities:
+    - weblink.roteador
+controles_fora:
+  name: Área Externa
+  entities:
+    - sensor.motion_sensor
+    - sensor.temperatura_lazer
+    - sensor.temperatura_externa
+    - sensor.umidade_lazer
+    - sensor.umidade_externa
+    - sensor.indicador_de_chuva
+    - switch.garagem
+    - switch.lateral
+    - switch.maracuja
+    - switch.grama
+automacao:
+  name: Automação
+  entities:
+    - automation.boasvindas
+    - automation.modo_dia_apos_nascer_do_sol
+    - automation.modo_noite_apos_por_do_sol
+    - automation.dia_de_lixo
+    - automation.luzes_para_a_noite
+    - automation.ao_sair_apaga_luzes
+    - automation.ao_sair_desliga_o_ar
+    - automation.fumaca_cozinha
+cenarios:
+  name: Cenários
+  entities:
+    - script.apagaluzes
+    - script.acendeluzes
+    - script.sala_on
+    - script.sala_off

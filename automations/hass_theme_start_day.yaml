@@ -1,0 +1,13 @@
+alias: 'Set Day theme at startup'
+initial_state: 'on'
+trigger:
+- platform: homeassistant
+  event: start
+condition:
+  condition: sun
+  after: sunrise
+  after_offset: '+00:30:00'
+action:
+- service: frontend.set_theme
+  data:
+    name: default

@@ -1,0 +1,19 @@
+alias: 'Luzes para a Noite'
+trigger:
+  platform: sun
+  event: sunset
+  offset: '-00:10:00'
+action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.google_home
+      volume_level: "0.3"
+  - service: tts.google_say
+    data:
+      entity_id: media_player.google_home
+      language: pt
+      message: 'Boa noite.'
+  - service: script.toggle
+    data:
+      entity_id: script.maracuja_on
+   

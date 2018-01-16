@@ -1,0 +1,109 @@
+      name: Controle 1
+      image: /local/custom_ui/floorplan/floorplan.svg
+      stylesheet: /local/custom_ui/floorplan/floorplan.css
+      
+      # These options are optional
+      warnings:                  # enable warnings (to find out why things might ot be working correctly)
+      # pan_zoom:                  # enable experimental panning / zooming
+      # hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
+      # date_format: DD-MMM-YYYY   # Date format to use in hover-over text
+      
+      #last_motion_entity: sensor.template_last_motion
+      #last_motion_class: last-motion
+
+      groups:
+        - name: Scripts
+          entities:
+             - script.tv_on
+             - script.tv_guia
+             - script.tv_ratio
+             - script.tv_input
+             - script.tv_tv
+             - script.tv_1
+             - script.tv_2
+             - script.tv_3
+             - script.tv_4
+             - script.tv_5
+             - script.tv_6
+             - script.tv_7
+             - script.tv_8
+             - script.tv_9
+             - script.tv_0
+             - script.tv_list
+             - script.tv_qview
+             - script.tv_vol1
+             - script.tv_vol2
+             - script.tv_can1
+             - script.tv_can2
+             - script.tv_fav
+             - script.tv_settings
+             - script.tv_mute
+             - script.tv_info
+             - script.tv_smart
+             - script.tv_myapps
+             - script.tv_cima
+             - script.tv_baixo
+             - script.tv_dir
+             - script.tv_esq
+             - script.tv_back
+             - script.tv_guide
+             - script.tv_exit
+             - script.tv_vermelho
+             - script.tv_verde
+             - script.tv_amarelo
+             - script.tv_azul
+             - script.tv_stop
+             - script.tv_play
+             - script.tv_rew
+             - script.tv_pause
+             - script.tv_fwd
+             - script.tv_simplink
+             - script.tv_ok
+             - script.net_on
+             - script.net_portal
+             - script.net_mosaico
+             - script.net_info
+             - script.net_vol1
+             - script.net_vol2
+             - script.net_can1
+             - script.net_can2
+             - script.net_mute
+             - script.net_voltar
+             - script.net_sair
+             - script.net_nettv
+             - script.net_cima
+             - script.net_baixo
+             - script.net_esq
+             - script.net_dir
+             - script.net_ok
+             - script.net_vermelho
+             - script.net_verde
+             - script.net_amarelo
+             - script.net_azul
+             - script.net_agora
+             - script.net_1
+             - script.net_2
+             - script.net_3
+             - script.net_4
+             - script.net_5
+             - script.net_6
+             - script.net_7
+             - script.net_8
+             - script.net_9
+             - script.net_0
+             - script.net_fav
+             - script.net_menu
+             - script.net_rew
+             - script.net_play
+             - script.net_fwd
+             - script.net_replay
+             - script.net_stop
+             - script.net_rec
+             - script.net_ppv
+             - script.net_vod
+             - script.net_musica
+          action:
+            domain: homeassistant
+            service: toggle
+
+

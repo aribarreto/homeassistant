@@ -1,0 +1,16 @@
+alias: 'Boas-vindas'
+trigger:
+  platform: state
+  entity_id: device_tracker.ari_s5
+  from: 'not_home'
+  to: 'home'
+action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.google_home
+      volume_level: "0.4"
+  - service: tts.google_say
+    data:
+      entity_id: media_player.google_home
+      language: pt
+      message: 'Bem-vindo, meu mestre'
