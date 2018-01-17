@@ -117,7 +117,7 @@ google_assistant:
   project_id: hass-emaus
   client_id: adasdeafsrfsfsdfsfdgsdf
   access_token: sdfsrgsdfadaasdasdgrgrgrgradf
-  api_key: AIzaSyDUuseQ25Al7yyu6RcJBeYGPhKHC92tcxo
+  api_key: !secret google_api_key
   exposed_domains:
     - switch
     - light
@@ -147,5 +147,5 @@ panel_custom: !include panel_custom.yaml
 binary_sensor: !include binary_sensors.yaml
 
 ifttt:
-  key: dXRxoPxNjGL_I12YO9xx0y
+  key: !secret ifttt_key
 

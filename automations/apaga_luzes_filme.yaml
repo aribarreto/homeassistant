@@ -1,0 +1,9 @@
+alias: 'Apaga Luzes Filme'
+trigger:
+  platform: state
+  entity_id: media_player.chromecast
+  to: 'playing'
+action:
+  - service: script.toggle
+    data:
+      entity_id: script.apagaluzes

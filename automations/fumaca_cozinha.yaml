@@ -2,7 +2,7 @@ alias: 'Fumaça Cozinha'
 trigger:
   platform: state
   entity_id: sensor.status_gas
-  from: 'Puro'
+#  from: 'Puro'
   to: 'Fumaça'
 action:
   - service: media_player.volume_set

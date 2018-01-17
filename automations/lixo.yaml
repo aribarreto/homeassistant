@@ -1,7 +1,11 @@
 alias: 'Dia de Lixo'
 trigger:
-  platform: time
-  at: '09:00:00'
+  - platform: time
+    at: '09:00:00'
+  - platform: time
+    at: '10:00:00'
+  - platform: time
+    at: '11:00:00'
 condition:
   condition: time
   weekday:
@@ -18,3 +22,7 @@ action:
       entity_id: media_player.google_home
       language: pt
       message: 'Bom dia! Hoje é dia de tirar o lixo.'
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.google_home
+      volume_level: "0.5"

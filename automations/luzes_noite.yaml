@@ -2,17 +2,21 @@ alias: 'Luzes para a Noite'
 trigger:
   platform: sun
   event: sunset
-  offset: '-00:10:00'
+  offset: '-00:05:00'
 action:
   - service: media_player.volume_set
     data:
       entity_id: media_player.google_home
-      volume_level: "0.3"
+      volume_level: "0.4"
   - service: tts.google_say
-    data:
-      entity_id: media_player.google_home
-      language: pt
-      message: 'Boa noite.'
+    entity_id: media_player.google_home
+    language: pt
+    data_template:
+      message: "Boa noite. {{ now()}}. A temperatura em casa é de {{ {states('sensor.sala_temperature') }} graus.
+{% if sensor.weather_precip_probability > 20 %}
+      O risco de chuva é de {{sensor.weather_precip_probability}} porcento.
+      {% endif %}"
+    cache: false
   - service: script.toggle
     data:
       entity_id: script.maracuja_on
